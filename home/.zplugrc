@@ -1,0 +1,41 @@
+### ZPLUG
+source $HOME/.zplug/init.zsh
+
+### PLUGINS ###
+zplug "modules/tmux",       from:prezto
+zplug "modules/history",    from:prezto
+zplug "modules/utility",    from:prezto
+zplug "modules/ssh",        from:prezto
+zplug "modules/terminal",   from:prezto
+zplug "modules/directory",  from:prezto
+zplug "modules/completion", from:prezto
+
+zplug "zsh-users/zsh-completions"
+zplug "tarruda/zsh-autosuggestions",            defer:0
+zplug "zsh-users/zsh-syntax-highlighting",      defer:1
+zplug "zsh-users/zsh-history-substring-search", defer:2
+zplug "docker/cli",         use:"contrib/completion/zsh"
+
+zplug romkatv/powerlevel10k, as:theme, depth:1
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
+
+if zplug check zsh-users/zsh-autosuggestions; then
+    ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
+    ZSH_AUTOSUGGEST_CLEAR_WIDGETS=("${(@)ZSH_AUTOSUGGEST_CLEAR_WIDGETS:#(up|down)-line-or-history}")
+fi
+
+KEYTIMEOUT=1
+bindkey -v
+
+if zplug check zsh-users/zsh-history-substring-search; then
+    bindkey '\eOA' history-substring-search-up
+    bindkey '\eOB' history-substring-search-down
+fi
