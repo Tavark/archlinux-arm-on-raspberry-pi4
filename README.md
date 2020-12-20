@@ -1,4 +1,4 @@
-# raspberry-pi4-archlinux
+# Archlinux ARM (aarch64) on Raspberry PI4 (8GB)
 
 ## Prepare micro SD card 
 Installation is based on guide in https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4 with slight changes.
@@ -40,8 +40,6 @@ mount /dev/sdX2 root
 wget http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-aarch64-latest.tar.gz
 tar -xzvf ArchLinuxARM-rpi-aarch64-latest.tar.gz -C root
 sync
-wget https://github.com/raspberrypi/firmware/raw/master/boot/bcm2711-rpi-4-b.dtb
-cp bcm2711-rpi-4-b.dtb root/boot/bcm2711-rpi-4-b.dtb
 ```
 
 5. Download dtb for Raspberry PI to make USB work
