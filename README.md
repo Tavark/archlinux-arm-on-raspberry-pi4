@@ -147,9 +147,8 @@ chsh -s $(which zsh)
 export ZPLUG_HOME=~/.zplug
 git clone https://github.com/zplug/zplug $ZPLUG_HOME
 ```
-Copy home/.zshrc and home/.zplugrc into your $HOME-directory
 
-3. Copy configurations .zshrc and .zplugrc to user home
+3. Copy home/.zshrc and home/.zplugrc into your $HOME-directory
 ```bash
 source .zshrc
 ```
